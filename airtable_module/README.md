@@ -13,7 +13,7 @@ update_status(station, updated_status)
 - "waiting"   --> default / idle state -- this will be set initially and reset by the Create3
 - "ready"     --> Create3 has reached station position (station can begin executing tasks)
 - "executing" --> station has begun executing tasks
-- "success"   --> station has finished executing all tasks 
+- "success"   --> station has finished executing all tasks, ready to move on
 
 # sample usage: 
 
