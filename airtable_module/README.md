@@ -1,7 +1,7 @@
-airtable_module.py
+# airtable_module.py
   - module for each station to use to communicate with Airtable and the Create3
 
-guide for usage -- how to use this module in your code!! 
+# guide for usage -- how to use this module in your code!! 
 
 wait_until_ready(station)
 - where station is "waffle", "strawberry" or "whipped cream"
@@ -15,7 +15,7 @@ update_status(station, updated_status)
       "executing" --> station has begun executing tasks
       "success"   --> station has finished executing all tasks 
 
-sample usage: 
+# sample usage: 
 
 import airtable_module as airtable
 
