@@ -16,11 +16,11 @@ update_status(station, updated_status)
 - "success"   --> station has finished executing all tasks, ready for Create3 to move on to next station
 
 # Airtable logic example:
-1. Create3 moves to waffle  
-2. Create3 tells waffle it has arrived (sets “ready” in waffle column)  
+1. Create3 moves to waffle station 
+2. Create3 tells waffle station it has arrived (sets “ready” in waffle column)  
 3. Waffle station reads ready from the Create3, executes their functions (“executes” in waffle column)  
-4. Waffle tells Create3 it was a success (“success” in waffle column)  
-5. Create3 reads success from waffle station, goes to next station  
+4. Waffle station tells Create3 it was a success (“success” in waffle column)  
+5. Create3 reads success from waffle station, goes to next station
 
 # sample usage: 
 
