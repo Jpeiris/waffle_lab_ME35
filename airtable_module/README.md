@@ -1,5 +1,5 @@
 # airtable_module.py
-  - module for each station to use to communicate with Airtable and the Create3
+module for each station to use to communicate with Airtable and the Create3
 
 # guide for usage -- how to use this module in your code!! 
 
