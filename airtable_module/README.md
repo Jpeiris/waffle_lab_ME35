@@ -10,10 +10,17 @@ update_status(station, updated_status)
 - where status is either "waiting", "ready", "executing", "success" or (optionally) "failure"
 
 # statuses: 
-- "waiting"   --> default / idle state -- this will be set initially and reset by the Create3
-- "ready"     --> Create3 has reached station position (station can begin executing tasks)
-- "executing" --> station has begun executing tasks
-- "success"   --> station has finished executing all tasks, ready to move on
+- "waiting"   --> waiting for Create3 to reach position (default / idle state)
+- "ready"     --> Create3 has arrived at station position and is ready to pick up item (station can begin executing tasks)
+- "executing" --> station is executing their tasks
+- "success"   --> station has finished executing all tasks, ready for Create3 to move on to next station
+
+# Airtable logic example:
+Create3 moves to waffle
+Create3 tells waffle it has arrived (sets “ready” in waffle column)
+Waffle station reads ready from the Create3, executes their functions (“executes” in waffle column)
+Waffle tells Create3 it was a success (“success” in waffle column)
+Create3 reads success from waffle station, goes to next station
 
 # sample usage: 
 
