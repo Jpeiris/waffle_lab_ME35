@@ -17,9 +17,9 @@ update_status(station, updated_status)
 
 # sample usage: 
 
-  import airtable_module as airtable
+    import airtable_module as airtable
   
-  airtable.wait_until_ready("strawberry")
-  airtable.update_status("strawberry", "executing")
-  cut_strawberries()    # sample function - here is where your main station code goes! 
-  airtable.update_status("strawberry", "success")
+    airtable.wait_until_ready("strawberry")
+    airtable.update_status("strawberry", "executing")
+    cut_strawberries()    # sample function - here is where your main station code goes! 
+    airtable.update_status("strawberry", "success")
