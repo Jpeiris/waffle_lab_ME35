@@ -65,13 +65,3 @@ def wait_until_status(station, target, poll=0.5):
 # convenience function to wait for station to be ready
 def wait_until_ready(station):
         wait_until_status(station, "ready")
-
-def main():
-        print(get_status("waffle"))
-        update_status("strawberry", "executing")
-        wait_until_status("waffle", "success")
-        print("success!")
-        wait_until_ready("whipped cream")
-
-if __name__ == "__main__":
-    main()
