@@ -27,10 +27,10 @@ update_status(station, updated_status)
     import airtable_module as airtable 
     #make sure to download the airtable_module.py file and place it in the same folder as your station's code. 
 
-    airtable.wait_until_ready("strawberry") #This line constantly polls the strawberry column of the airtable. It waits for "ready" thene xits                                              #the loop.
+    airtable.wait_until_ready("strawberry") #This line constantly polls the strawberry column of the airtable. It waits for "ready" then exits  the loop.
     
-    airtable.update_status("strawberry", "executing") #This line updates the strawberry column to "executing". Place this before you execute                                                          #your station's code.
+    airtable.update_status("strawberry", "executing") #This line updates the strawberry column to "executing". Place this before you execute your station's code.
     
     cut_strawberries() # Sample function - here is where your main station code goes! 
     
-    airtable.update_status("strawberry", "success") #This line updates the strawberry column to success, indicating that your station is                                                            #complete. 
+    airtable.update_status("strawberry", "success") #This line updates the strawberry column to success, indicating that your station is complete. 
