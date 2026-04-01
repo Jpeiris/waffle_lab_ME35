@@ -1,4 +1,4 @@
-# testing states functionality for create3 
+# testing state functionality for create3 
 
 import airtable_module as airtable
 import time
