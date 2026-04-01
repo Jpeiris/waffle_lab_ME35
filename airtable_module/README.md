@@ -1,7 +1,7 @@
 # airtable_module.py
 module each station uses to communicate with Airtable and the Create3
 
-# guide for usage -- how to use this module in your code!! 
+# Guide for usage -- how to use this module in your code!! 
 
 wait_until_ready(station)
 - where station is "waffle", "strawberry" or "whipped cream"
@@ -9,7 +9,7 @@ wait_until_ready(station)
 update_status(station, updated_status)
 - where status is either "waiting", "ready", "executing", "success" or (optionally) "failure"
 
-# statuses: 
+# Statuses: 
 - "waiting"   --> waiting for Create3 to reach position (default / idle state)
 - "ready"     --> Create3 has arrived at station position and is ready to pick up item (station can begin executing tasks)
 - "executing" --> station is executing their tasks
@@ -22,7 +22,7 @@ update_status(station, updated_status)
 4. Waffle station tells Create3 it was a success (“success” in waffle column)  
 5. Create3 reads success from waffle station, goes to next station
 
-# sample usage: 
+# Sample usage: 
 
     import airtable_module as airtable
   
