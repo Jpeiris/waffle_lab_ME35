@@ -82,6 +82,14 @@ def visit_station(station):
 	print("Create3 moving on...")
 	airtable.update_status(station, "waiting")
 
+def go_home():
+	
+	#this function turns robot around, moves to starting pos, turns again
+
+	create3.turn_around()
+	create3.move_home()
+	create3.turn_around()
+
 def executing_order():
 	name, strawberry_order, whipped_cream_order = waiting_for_order()
 
@@ -104,10 +112,8 @@ def executing_order():
 		visit_station("strawberry")
 		time.sleep(2)
 
-
-	# go to pickup 
-
-	# go home
+	print("Going home and preparing for next order...")
+	go_home()
 
 try: 
 	while True: 
