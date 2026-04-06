@@ -96,13 +96,14 @@ def executing_order():
 	visit_station("waffle")
 	time.sleep(2)
 
+	if whipped_cream_order == "Yes": 
+		visit_station("whipped cream")
+		time.sleep(2)
+
 	if strawberry_order == "Yes":
 		visit_station("strawberry")
 		time.sleep(2)
 
-	if whipped_cream_order == "Yes": 
-		visit_station("whipped cream")
-		time.sleep(2)
 
 	# go to pickup 
 
