@@ -110,7 +110,8 @@ def executing_order():
 
         if whipped_cream_order == "Yes" and strawberry_order == "No": 
 		create3.follow_line("whipped cream")
-		time.sleep(2)
+                time.sleep(1)
+                create3.follow_line("waffle")
         elif whipped_cream_order == "No" and strawberry_order == "No":
                 create3.follow_line("waffle")
         else:
