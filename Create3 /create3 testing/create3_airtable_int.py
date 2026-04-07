@@ -87,8 +87,13 @@ def go_home():
 	#this function turns robot around, moves to starting pos, turns again
 
 	create3.turn_around()
+	print("turned around")
+	time.sleep(1)
 	create3.move_home()
+	print("home")
+	time.sleep(1)
 	create3.turn_around()
+	print("turned around")
 
 def executing_order():
 	name, strawberry_order, whipped_cream_order = waiting_for_order()
