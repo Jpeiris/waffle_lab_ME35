@@ -12,7 +12,8 @@ import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
 import math
-
+from rclpy.action import ActionClient
+from irobot_create_msgs.action import RotateAngle
 
 # =========================
 # CONFIGA
@@ -40,7 +41,7 @@ ANGULAR_MAX = 1.8
 MIN_CONTOUR_AREA = 300
 
 # Frames without line before declaring it lost
-LOST_FRAMES_THRESHOLD = 3
+LOST_FRAMES_THRESHOLD = 5
 
 # =========================
 # UTILS
@@ -457,11 +458,12 @@ def shutdown_robot():
 # =========================
 def move_home():
     follow_line("strawberry")
-    time.sleep(0.1)
+    time.sleep(1)
     follow_line("whipped cream")
-    time.sleep(0.1)
+    time.sleep(1)
     follow_line("waffle")
     print("home")
+    time.sleep(1)
 
 # =========================
 # TURN AROUND
