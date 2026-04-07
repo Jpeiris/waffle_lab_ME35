@@ -11,10 +11,11 @@ from libcamera import controls
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
+import math
 
 
 # =========================
-# CONFIG
+# CONFIGA
 # =========================
 DEBUG = True
 COLORS_FILE = "colors.json"
@@ -121,7 +122,9 @@ time.sleep(1)
 class Create3Driver(Node):
     def __init__(self):
         super().__init__("create3_line_follower")
+
         self.cmd_vel_pub = self.create_publisher(Twist, "/cmd_vel", 10)
+        self.rotate_angle_client = ActionClient(self, RotateAngle, "/rotate_angle")
 
     def send_twist(self, linear_x=0.0, angular_z=0.0):
         msg = Twist()
@@ -131,6 +134,47 @@ class Create3Driver(Node):
 
     def stop(self):
         self.send_twist(0.0, 0.0)
+
+    def rotate_angle(self, angle_rad, max_rotation_speed=0.5, wait=True):
+        goal_msg = RotateAngle.Goal()
+        goal_msg.angle = float(angle_rad)
+        goal_msg.max_rotation_speed = float(max_rotation_speed)
+
+        self.get_logger().info(
+            f"Sending rotate_angle goal: angle={angle_rad:.3f} rad, "
+            f"max_speed={max_rotation_speed:.3f} rad/s"
+        )
+
+        self.rotate_angle_client.wait_for_server()
+
+        send_goal_future = self.rotate_angle_client.send_goal_async(goal_msg)
+        rclpy.spin_until_future_complete(self, send_goal_future)
+
+        goal_handle = send_goal_future.result()
+
+        if goal_handle is None:
+            self.get_logger().error("No goal handle returned.")
+            return None
+
+        if not goal_handle.accepted:
+            self.get_logger().warning("rotate_angle goal was rejected.")
+            return None
+
+        self.get_logger().info("rotate_angle goal accepted.")
+
+        if not wait:
+            return goal_handle
+
+        result_future = goal_handle.get_result_async()
+        rclpy.spin_until_future_complete(self, result_future)
+
+        result = result_future.result()
+        if result is None:
+            self.get_logger().error("No result returned.")
+            return None
+
+        self.get_logger().info("rotate_angle finished.")
+        return result.result
 
 
 robot = None
@@ -313,14 +357,10 @@ def follow_color(colors, name):
                 robot.stop()
                 return "stopped"
 
-            time.sleep(0.03)
-
+            time.sleep(0.03)        
     except KeyboardInterrupt:
         robot.stop()
         return "stopped"
-
-
-
 
 # =========================
 # COMMAND LOOP
@@ -411,6 +451,23 @@ def shutdown_robot():
         rclpy.shutdown()
     cv2.destroyAllWindows()
     picam2.stop()
+
+# =========================
+# MOVE HOME
+# =========================
+def move_home():
+    follow_line("strawberry")
+    time.sleep(0.1)
+    follow_line("whipped cream")
+    time.sleep(0.1)
+    follow_line("waffle")
+    print("home")
+
+# =========================
+# TURN AROUND
+# =========================
+def turn_around():
+    robot.rotate_angle(math.pi)
 
 # =========================
 # MAIN
