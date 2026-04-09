@@ -8,7 +8,7 @@ import time
 
 BASE_ID = "appORGiY5zlUCSNcE"
 TABLE_ID = "tblIGj6C7MZ3aonnI"
-RECORD_ID = "recndImLL5McK4CG0"
+RECORD_ID = "recqHceBrlUHvdOJs"
 
 TOKEN = "patubif58PYYOJxFO.50831b6d04f405beb503f51241c3ce52e45f79695af3f5a8efc26540701a719a"
 
