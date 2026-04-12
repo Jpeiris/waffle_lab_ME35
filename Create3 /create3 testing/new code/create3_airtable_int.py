@@ -130,7 +130,6 @@ def executing_order():
 
     elif maple_syrup_order == "Yes": 
         create3.follow_line("maple syrup")
-        time.sleep(1) #
 	
     time.sleep(1)
     create3.follow_line("waffle")
