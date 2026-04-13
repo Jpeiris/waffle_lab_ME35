@@ -113,7 +113,7 @@ def executing_order():
         time.sleep(2)
 
     print("Going home...")
-    create3.turn(math.pi)
+    create3.turn(-math.pi)
     time.sleep(1)
     
     if strawberry_order == "Yes":
