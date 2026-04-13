@@ -1,5 +1,9 @@
 Things to do: 
 
-- spinning for whipped cream ??
-- add color for “maple syrup” station
-- update UI table & order form to include “Maple Syrup?” column / option
+- ~~spinning for whipped cream ??~~
+- ~~add color for “maple syrup” station~~
+- ~~update UI table & order form to include “Maple Syrup?” column / option~~
+
+- test final_cam.py functionality (should be able to run continuously)
+- final run through with all stations (maybe with real waffles pls)
+- mount camera stand
