@@ -56,8 +56,8 @@ def detect_waffle():
                         scores[class_name] += prediction[0][i]
         
         best_class = max(scores, key=scores.get)
-        print(best_class)
-        confidence = scores[best_class] / 10  # average
+        #print(best_class)
+        confidence = scores[best_class] / 5  # average
 
         if confidence < 0.1:
                 return "uncertain"
@@ -77,12 +77,13 @@ def wait_until_pickup():
         else:
             empty_count = 0
 
-        if empty_count >= 3:   # plate must be empty 5 times in a row
+        if empty_count >= 3:   # plate must be empty 3 times in a row
             return True
 
         time.sleep(0.1)
 
-while True:
+try:
+    while True:
         print("waiting for create3")
         airtable.wait_until_ready("pickup")
 
@@ -91,10 +92,11 @@ while True:
 
         print("detecting now...")
         wait_until_pickup()
-       
+        
         if wait_until_pickup() == True:
             print("about to put success")
             airtable.update_status("pickup", "success")
+            time.sleep(2)
             print("waffle picked up!")
 
         print("resetting airtable to waiting")
@@ -102,4 +104,4 @@ while True:
         time.sleep(.1)
 
 except KeyboardInterrupt: 
-	print("\nExiting Program")
+        print("\nExiting Program")
