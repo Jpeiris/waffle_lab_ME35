@@ -10,7 +10,7 @@ BASE_ID = "appORGiY5zlUCSNcE"
 TABLE_ID = "tblIGj6C7MZ3aonnI"
 RECORD_ID = "recqHceBrlUHvdOJs"
 
-TOKEN = "patubif58PYYOJxFO.50831b6d04f405beb503f51241c3ce52e45f79695af3f5a8efc26540701a719a"
+TOKEN = "patubif58PYYOJxFO.b6bccd62347df1bc5ed36fa1d19832fdee61e296aa878ba9a6d261f21389f2db"
 
 URL = f"https://api.airtable.com/v0/{BASE_ID}/{TABLE_ID}/{RECORD_ID}"
 
