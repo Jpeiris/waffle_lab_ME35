@@ -22,7 +22,7 @@ import numpy as np
 import time
 
 # load model
-model = load_model('keras_Model.h5', compile=False)
+model = load_model('keras_model.h5', compile=False)
 class_names = open('labels.txt').readlines()
 
 # camera init
