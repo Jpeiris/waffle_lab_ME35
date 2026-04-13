@@ -108,7 +108,7 @@ def executing_order():
        
         if maple_syrup_order == "No":
             print("visiting maple syrup first")
-            visit_station("maple syrup")
+            create3.follow_line("maple syrup")
             time.sleep(1)
             visit_station("whipped cream")
 
@@ -121,7 +121,7 @@ def executing_order():
         
         if maple_syrup_order == "No":
             print("visiting maple syrup first")
-            visit_station("maple syrup")
+            create3.follow_line("maple syrup")
             time.sleep(1)
             visit_station("strawberry")
 
