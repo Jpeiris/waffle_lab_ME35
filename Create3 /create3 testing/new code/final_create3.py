@@ -142,9 +142,13 @@ def executing_order():
         create3.follow_line("maple syrup")
 
     elif whipped_cream_order == "Yes": 
-        create3.follow_line("whipped cream")
-        time.sleep(1)
-        create3.follow_line("maple syrup")
+       
+        if strawberry_order == "No":
+            create3.follow_line("maple syrup")
+        else:
+            create3.follow_line("whipped cream")
+            time.sleep(1)
+            create3.follow_line("maple syrup")
 
     elif maple_syrup_order == "Yes": 
         create3.follow_line("maple syrup")
