@@ -107,6 +107,7 @@ def executing_order():
     if whipped_cream_order == "Yes": 
        
         if maple_syrup_order == "No":
+            print("visiting maple syrup first")
             visit_station("maple syrup")
             time.sleep(1)
             visit_station("whipped cream")
@@ -119,6 +120,7 @@ def executing_order():
     if strawberry_order == "Yes":
         
         if maple_syrup_order == "No":
+            print("visiting maple syrup first")
             visit_station("maple syrup")
             time.sleep(1)
             visit_station("strawberry")
