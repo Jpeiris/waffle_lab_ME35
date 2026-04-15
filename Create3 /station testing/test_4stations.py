@@ -149,10 +149,10 @@ def executing_order():
 
     print("Waiting for customer to pickup...")
     #create3.turn(math.pi / 2)
-    airtable.update_status("pickup", "ready")
+    #airtable.update_status("pickup", "ready")
     time.sleep(2)
-
-    airtable.wait_until_status("pickup", "success")
+	print("This is where order pick up detection would normally occur.")
+    #airtable.wait_until_status("pickup", "success")
     time.sleep(2)
 
     print("Preparing next order...")
