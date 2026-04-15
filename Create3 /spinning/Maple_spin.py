@@ -78,7 +78,7 @@ def visit_station(station):
     time.sleep(2) #adjust based on syrup functionality
 
     if station == "maple syrup":
-        create3.turn(math.pi / 2)
+        create3.turn(2*math.pi)
     else:
         continue
 
