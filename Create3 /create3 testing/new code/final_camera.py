@@ -72,6 +72,7 @@ def get_order():
 
     if not data["records"] or record_num > len(data["records"]) - 1:
         print("no order found")
+        time.sleep(.5)
         return
 
     record = data["records"][record_num]["fields"]
